@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+int data;
+struct node *next;
+};
+int main() {
+struct node *head = malloc(sizeof(struct node));
+head->data = 45;
+head->next = NULL;
+struct node *ptr = malloc(sizeof(struct node));
+ptr->data = 98;
+ptr->next = NULL;
+head->next = ptr;
+struct node *newNode = malloc(sizeof(struct node));
+newNode->data = 3;
+newNode->next = NULL;
+ptr = head;
+while (ptr->next != NULL) {
+ptr = ptr->next;
+}
+ptr->next = newNode;
+ptr = head;
+while (ptr != NULL) {
+printf("%d ", ptr->data);
+ptr = ptr->next;
+}
+return 0;
+}
